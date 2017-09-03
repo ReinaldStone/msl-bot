@@ -43,7 +43,7 @@ Func farmForeverMain()
 				
 			; If your inventory is full, convert them to gems
 			Case "map-astromon-full"
-				navigate("monster")
+				navigate("village","monsters")
 			
 			; We should never ge stuck in an unknown location
 			Case "unknown"

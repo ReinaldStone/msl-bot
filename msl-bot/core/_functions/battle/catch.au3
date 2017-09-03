@@ -29,7 +29,8 @@ Func catch($varImages, $boolOneAstromon = False, $boolRareAstromon = True)
 			$pointArray[1] -= 50
 
 			;catching astromons
-			clickUntil($pointArray, "catch-success,battle,battle-astromon-full", 500, 100)
+			clickWhile($pointArray, "catch-mode", 10, 250)
+			_Sleep(500)
 
 			If getLocation() = "battle-astromon-full" Then
 				If setLogReplace("Catching astromons... Astromon bag full!", 1) Then Return -1
@@ -37,7 +38,6 @@ Func catch($varImages, $boolOneAstromon = False, $boolRareAstromon = True)
 				Return $astromons
 			EndIf
 			
-			_Sleep(500)
 			ControlSend($hWindow, "", "", "{ESC}")
 			_Sleep(100)
 			ControlSend($hWindow, "", "", "{ESC}")
