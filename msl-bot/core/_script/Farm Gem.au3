@@ -22,7 +22,7 @@ Func farmGem()
 	EndIf
 
 	setLog("~~~Starting 'Farm Gem' script~~~", 2)
-	farmGemMain($monster, $justEvolve, $gemsToFarm, $maxRefill, $freeSpace)
+	Return farmGemMain($monster, $justEvolve, $gemsToFarm, $maxRefill, $freeSpace)
 	setLog("~~~Finished 'Farm Gem' script~~~", 2)
 EndFunc   ;==>farmGem
 
