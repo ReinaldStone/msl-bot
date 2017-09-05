@@ -18,11 +18,29 @@ EndFunc   ;==>farmForever
 	Author: Shimizoki (2017)
 #ce
 Func farmForeverMain()
-		
+			
 	While True
-
+	
 		antiStuck("map")
 		If _Sleep(100) Then ExitLoop
+	
+		; If it happens to be midnight, farm starstones
+		If StringSplit(_NowTime(4), ":", 2)[0] = "00" Then
+			setLog("Starstones")
+			navigate("map","starstone-dungeons")
+			clickPoint($map_coorB9, 1, 500)
+			clickUntil($map_coorBattle, "battle")
+			farmStarstone()
+			
+			setLog("Elemental")
+			navigate("map","elemental-dungeons")
+			clickPoint($map_coorB9, 1, 500)
+			clickUntil($map_coorBattle, "battle")
+			farmStarstone()
+			
+			navigate("map")
+			farmGoldDungeon()
+		EndIf
 		
 		Local $location = getLocation()
 		Switch $location

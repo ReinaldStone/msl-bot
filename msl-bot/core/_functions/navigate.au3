@@ -54,7 +54,7 @@ Func navigate($strMainLocation, $strLocation = "", $forceGiveUp = False)
 			
 			;map
 			Case "guardian-dungeons"
-				clickUntil(findImage("map-dungeons", 50), "starstone-dungeons,golem-dungeons")
+				clickUntil(findImage("map-dungeons", 50), "starstone-dungeons,elemental-dungeons,golem-dungeons")
 				clickUntil($map_coorGuardianDungeons, "guardian-dungeons")
 			
 			Case "golem-dungeons"
@@ -84,12 +84,16 @@ Func navigate($strMainLocation, $strLocation = "", $forceGiveUp = False)
 				clickUntil($imgPoint, "golem-dungeons", 3, 3000)
 
 			Case "gold-dungeons"
-				clickUntil(findImage("map-dungeons", 50), "gold-dungeons,starstone-dungeons,golem-dungeons")
+				clickUntil(findImage("map-dungeons", 50), "gold-dungeons,starstone-dungeons,elemental-dungeons,golem-dungeons")
 				clickUntil($map_coorGoldDungeons, "gold-dungeons")
 				
 			Case "starstone-dungeons"
-				clickUntil(findImage("map-dungeons", 50), "starstone-dungeons,golem-dungeons")
+				clickUntil(findImage("map-dungeons", 50), "gold-dungeons,starstone-dungeons,elemental-dungeons,golem-dungeons")
 				clickUntil($map_coorStarstoneDungeons, "starstone-dungeons")
+				
+			Case "elemental-dungeons"
+				clickUntil(findImage("map-dungeons", 50), "gold-dungeons,starstone-dungeons,elemental-dungeons,golem-dungeons")
+				clickUntil($map_coorElementDungeons, "elemental-dungeons")
 				
 			;battle
 			Case "catch-mode"
@@ -136,7 +140,7 @@ Func navigate($strMainLocation, $strLocation = "", $forceGiveUp = False)
 						Case "monsters", "manage", "map", "quests"
 							clickUntil($game_pixelBack, "village")
 							If waitLocation("village", 5000) Then ExitLoop
-						Case "unknown", "inbox", "shop", "astroleague", "map-stage", "clan", "association", "starstone-dungeons", "map-battle"
+						Case "unknown", "inbox", "shop", "astroleague", "map-stage", "clan", "association", "starstone-dungeons", "elemental-dungeons", "map-battle"
 							If checkPixel($game_pixelBack) = True Then clickPoint($game_pixelBack, 3)
 							clickUntil(findImage("misc-close", 30), "village", 3, 1000) ;to close any windows open
 						Case Else

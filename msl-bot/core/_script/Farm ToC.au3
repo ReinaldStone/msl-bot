@@ -12,6 +12,8 @@ EndFunc   ;==>farmToc
 
 Func farmTocMain()
 
+	Local $gemsUsed = 0
+	Local $maxRefill = 100
 	Local $roundNumber = [0,0]
 	Local $autoMode = $AUTO_BATTLE
 
