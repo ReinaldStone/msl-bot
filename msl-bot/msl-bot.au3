@@ -1,18 +1,18 @@
 #Region ;**** Directives created by AutoIt3Wrapper_GUI ****
 #AutoIt3Wrapper_Icon=..\..\..\favicon.ico
-#AutoIt3Wrapper_Outfile=msl-bot v2.2.exe
+#AutoIt3Wrapper_Outfile=msl-bot v3.0.exe
 #AutoIt3Wrapper_UseX64=n
 #AutoIt3Wrapper_Res_Description=An open-sourced Monster Super League bot
-#AutoIt3Wrapper_Res_Fileversion=2.2.1.0
+#AutoIt3Wrapper_Res_Fileversion=3.0.0.0
 #EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 
 ;Initialize Bot
 Global $botConfig = "config.ini"
 Global $botConfigDir = @ScriptDir & "/profiles/" & $botConfig
-Global $oldVersion = "2.0"
-Global $botSimpleVersion = "2.2"
-Global $botVersion = "v2.2.1.0"
-Global $botVersionValue = 2020100
+Global $oldVersion = "2.2"
+Global $botSimpleVersion = "3.0"
+Global $botVersion = "v3.0.0.0"
+Global $botVersionValue = 3000000
 Global $botName = "MSL Bot"
 Global $arrayScripts = StringSplit(IniRead($botConfigDir, "general", "scripts", ""), ",", 2)
 
@@ -117,10 +117,10 @@ Func debugPoint3()
 
 	Local $size = WinGetClientSize($hWindow)
 	Local $pixel = [MouseGetPos(0) - WinGetPos($hWindow)[0] - $diff[0], MouseGetPos(1) - WinGetPos($hWindow)[1] - $diff[1]]
-		
+
 	$pixel[0] = _Min(_Max(0, $pixel[0]), $size[0])
 	$pixel[1] = _Min(_Max(0, $pixel[1]), $size[1])
-	
+
 	_CaptureRegion()
 	Local $color = _ColorHexToRGB(_GDIPlus_BitmapGetPixel($hBitmap, $pixel[0], $pixel[1]))
 	setLog("Point: (" & $pixel[0] & "," & $pixel[1] & ") - [" & $color[0] & "," & $color[1] & "," & $color[2] & "]", 1)
@@ -138,11 +138,11 @@ EndFunc   ;==>debugPoint1
 
 Func debugPoint2()
 	getEmulatorHandle()
-	
+
 	Local $size = WinGetClientSize($hWindow)
 	$pointDebug2[0] = _Min(_Max(0, MouseGetPos(0) - WinGetPos($hWindow)[0] - $diff[0]), $size[0])
 	$pointDebug2[1] = _Min(_Max(0, MouseGetPos(1) - WinGetPos($hWindow)[1] - $diff[1]), $size[1])
-	
+
 	GUICtrlSetData($lblDebugCoordinations, "F6: (" & $pointDebug1[0] & ", " & $pointDebug1[1] & ") | F7: (" & $pointDebug2[0] & ", " & $pointDebug2[1] & ")")
 EndFunc   ;==>debugPoint2
 
