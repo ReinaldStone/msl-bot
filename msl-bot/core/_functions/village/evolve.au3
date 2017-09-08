@@ -171,7 +171,7 @@ Func evolveMon($monster)
 		; Do Awakening
 		If setLogReplace($logBaseStr & "Awakening", 2) Then Return -1
 		If _Sleep(10) Then Return -1
-		clickUntil("424, 394", "monsters-awaken", 20, 500)
+		clickUntil("424, 394", "monsters-awaken,buy-gold", 20, 500)
 
 		; Abort if out of gold
 		If getLocation() = "buy-gold" Then
@@ -186,7 +186,7 @@ Func evolveMon($monster)
 		; Do Evolution
 		If setLogReplace($logBaseStr & "Evolving", 2) Then Return -1
 		If _Sleep(10) Then Return -1
-		clickUntil("657, 394", "monsters-evolve", 20, 500)
+		clickUntil("657, 394", "monsters-evolve,buy-gold", 20, 500)
 
 		; Abort if out of gold
 		If getLocation() = "buy-gold" Then

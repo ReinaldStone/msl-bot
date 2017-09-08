@@ -76,10 +76,10 @@ Func farmForeverMain()
 			; If on this screen, we should evolve some mons
 			Case "monsters"
 				setLog("~~~Starting 'Farm Gem' script~~~", 2)
-				If Not farmGemMain(IniRead($botConfigDir, "Farm Gem", "monster", Null), 1, IniRead($botConfigDir, "Farm Gem", "gems-to-farm", Null), IniRead($botConfigDir, "Farm Gem", "refill-max", Null), 0) Then
-					navigate("map", "golem-dungeons")
-				Else
+				If farmGemMain(IniRead($botConfigDir, "Farm Gem", "monster", Null), 1, IniRead($botConfigDir, "Farm Gem", "gems-to-farm", Null), IniRead($botConfigDir, "Farm Gem", "refill-max", Null), 0) Then
 					navigate("map")
+				Else
+					navigate("map", "golem-dungeons")
 				EndIf
 			
 			; If you are unsure where to start, farm astromon
